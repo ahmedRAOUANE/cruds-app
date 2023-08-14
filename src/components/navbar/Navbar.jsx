@@ -13,7 +13,7 @@ import { AirSharp } from "@mui/icons-material";
 
 const Navbar = () => {
   return (
-    <AppBar component="nav">
+    <AppBar component="nav" position="relative">
       <Toolbar>
         <IconButton
           color="inherit"
@@ -28,7 +28,7 @@ const Navbar = () => {
           component="div"
           sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
         >
-          MUI
+          CRUDS
         </Typography>
         <Box sx={{ display: { xs: "none", sm: "block" } }}>
           {["Home", "About", "Contact"].map((item) => (

@@ -1,15 +1,8 @@
-import {
-  Container,
-  Grid,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
-import Navbar from "./components/navbar/Navbar";
+import { Container, Grid } from "@mui/material";
 
-import { InboxIcon, MailIcon } from "@mui/icons-material";
+import Navbar from "./components/navbar/Navbar";
+import Rightbar from "./components/rightbar/Rightbar";
+import Sidebar from "./components/sidebar/Sidebar";
 
 function App() {
   return (
@@ -17,22 +10,8 @@ function App() {
       <Navbar />
       <Container>
         <Grid container>
-          <Grid item>
-            <List>
-              {["Inbox", "Starred", "Send email", "Drafts"].map(
-                (text, index) => (
-                  <ListItem key={text} disablePadding>
-                    <ListItemButton>
-                      <ListItemIcon>
-                        {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-                      </ListItemIcon>
-                      <ListItemText primary={text} />
-                    </ListItemButton>
-                  </ListItem>
-                )
-              )}
-            </List>
-          </Grid>
+          <Sidebar />
+          <Rightbar />
         </Grid>
       </Container>
     </>
