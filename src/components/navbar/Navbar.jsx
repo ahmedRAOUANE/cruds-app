@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import {
   AppBar,
@@ -9,7 +10,7 @@ import {
   Typography,
 } from "@mui/material";
 
-import { AirSharp } from "@mui/icons-material";
+import MenuIcon from "@mui/icons-material/Menu";
 import { Container } from "@mui/system";
 
 const Navbar = () => {
@@ -23,7 +24,7 @@ const Navbar = () => {
             edge="start"
             sx={{ mr: 2, display: { sm: "none" } }}
           >
-            <AirSharp />
+            <MenuIcon />
           </IconButton>
           <Typography
             variant="h6"
@@ -33,9 +34,18 @@ const Navbar = () => {
             CRUDS
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {["Home", "About", "Contact"].map((item) => (
+            {["home", "products", "categories"].map((item) => (
               <Button key={item} sx={{ color: "#fff" }}>
-                {item}
+                <Link
+                  to={item}
+                  style={{
+                    textDecoration: "none",
+                    textTransform: "capitalize",
+                    color: "#fff",
+                  }}
+                >
+                  {item}
+                </Link>
               </Button>
             ))}
           </Box>
