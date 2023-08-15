@@ -11,6 +11,7 @@ import {
   Paper,
   Typography,
 } from "@mui/material";
+import Button from "@mui/joy/Button";
 
 function createData(id, name, category, price) {
   return { id, name, category, price };
@@ -69,7 +70,12 @@ const Products = () => {
                 <StyledTableCell>{row.name}</StyledTableCell>
                 <StyledTableCell>{row.category}</StyledTableCell>
                 <StyledTableCell>{row.price}</StyledTableCell>
-                <StyledTableCell>operations</StyledTableCell>
+                <StyledTableCell>
+                  <Button color="danger" style={{ marginRight: "20px" }}>
+                    delete
+                  </Button>
+                  <Button>edite</Button>
+                </StyledTableCell>
               </StyledTableRow>
             ))}
           </TableBody>
