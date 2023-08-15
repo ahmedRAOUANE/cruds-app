@@ -1,13 +1,9 @@
 import {
-  Container,
-  Divider,
   Grid,
   List,
   ListItem,
   ListItemButton,
-  ListItemIcon,
   ListItemText,
-  Toolbar,
 } from "@mui/material";
 
 import InboxIcon from "@mui/icons-material/MoveToInbox";
