@@ -1,5 +1,7 @@
 import * as React from "react";
 import {
+  tableCellClasses,
+  styled,
   Table,
   TableBody,
   TableCell,
@@ -21,6 +23,26 @@ const rows = [
   createData(4, "Product1", "something", 100),
 ];
 
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}));
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  "&:nth-of-type(odd)": {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  "&:last-child td, &:last-child th": {
+    border: 0,
+  },
+}));
+
 const Products = () => {
   return (
     <>
@@ -31,22 +53,24 @@ const Products = () => {
         <Table sx={{ minWidth: 650 }} aria-label="caption table">
           <TableHead>
             <TableRow>
-              <TableCell>ID</TableCell>
-              <TableCell>name</TableCell>
-              <TableCell>category</TableCell>
-              <TableCell>price</TableCell>
+              <StyledTableCell>ID</StyledTableCell>
+              <StyledTableCell>name</StyledTableCell>
+              <StyledTableCell>category</StyledTableCell>
+              <StyledTableCell>price</StyledTableCell>
+              <StyledTableCell>operations</StyledTableCell>
             </TableRow>
           </TableHead>
           <TableBody>
             {rows.map((row) => (
-              <TableRow key={row.id}>
-                <TableCell component="th" scope="row">
+              <StyledTableRow key={row.id}>
+                <StyledTableCell component="th" scope="row">
                   {row.id}
-                </TableCell>
-                <TableCell>{row.name}</TableCell>
-                <TableCell>{row.category}</TableCell>
-                <TableCell>{row.price}</TableCell>
-              </TableRow>
+                </StyledTableCell>
+                <StyledTableCell>{row.name}</StyledTableCell>
+                <StyledTableCell>{row.category}</StyledTableCell>
+                <StyledTableCell>{row.price}</StyledTableCell>
+                <StyledTableCell>operations</StyledTableCell>
+              </StyledTableRow>
             ))}
           </TableBody>
         </Table>
