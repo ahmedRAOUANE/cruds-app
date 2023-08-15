@@ -1,105 +1,57 @@
 import * as React from "react";
-import { DataGrid } from "@mui/x-data-grid";
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+  Typography,
+} from "@mui/material";
 
-const columns = [
-  { field: "id", headerName: "ID"},
-  { field: "title", headerName: "name"},
-  { field: "category", headerName: "category"},
-  {
-    field: "price",
-    headerName: "price",
-    type: "number",
-  },
-  {
-    field: "count",
-    headerName: "count",
-    type: "number",
-  },
-  {
-    field: "rate",
-    headerName: "rate",
-    type: "number",
-  },
-];
+function createData(id, name, category, price) {
+  return { id, name, category, price };
+}
 
 const rows = [
-  { id: 1, title: "Snow", category: "Jon", price: 35, count: 20, rate: 2.3 },
-  {
-    id: 2,
-    title: "Lannister",
-    category: "Cersei",
-    price: 42,
-    count: 20,
-    rate: 2.3,
-  },
-  {
-    id: 3,
-    title: "Lannister",
-    category: "Jaime",
-    price: 45,
-    count: 20,
-    rate: 2.3,
-  },
-  { id: 4, title: "Stark", category: "Arya", price: 16, count: 20, rate: 2.3 },
-  {
-    id: 5,
-    title: "Targaryen",
-    category: "Daenerys",
-    price: null,
-    count: 20,
-    rate: 2.3,
-  },
-  {
-    id: 6,
-    title: "Melisandre",
-    category: null,
-    price: 150,
-    count: 20,
-    rate: 2.3,
-  },
-  {
-    id: 7,
-    title: "Clifford",
-    category: "Ferrara",
-    price: 44,
-    count: 20,
-    rate: 2.3,
-  },
-  {
-    id: 8,
-    name: "Frances",
-    category: "Rossini",
-    price: 36,
-    count: 20,
-    rate: 2.3,
-  },
-  {
-    id: 9,
-    name: "Roxie",
-    category: "Harvey",
-    price: 65,
-    count: 20,
-    rate: 2.3,
-    count: 20,
-    rate: 2.3,
-  },
+  createData(1, "Product1", "something", 100),
+  createData(2, "Product1", "something", 100),
+  createData(3, "Product1", "something", 100),
+  createData(4, "Product1", "something", 100),
 ];
 
 const Products = () => {
   return (
-    <div style={{ height: 400, width: "100%" }}>
-      <DataGrid
-        rows={rows}
-        columns={columns}
-        initialState={{
-          pagination: {
-            paginationModel: { page: 0, pageSize: 5 },
-          },
-        }}
-        pageSizeOptions={[5, 10]}
-        checkboxSelection
-      />
-    </div>
+    <>
+      <Typography component="h3" variant="h5" mb={3}>
+        Products
+      </Typography>
+      <TableContainer component={Paper}>
+        <Table sx={{ minWidth: 650 }} aria-label="caption table">
+          <TableHead>
+            <TableRow>
+              <TableCell>ID</TableCell>
+              <TableCell>name</TableCell>
+              <TableCell>category</TableCell>
+              <TableCell>price</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {rows.map((row) => (
+              <TableRow key={row.id}>
+                <TableCell component="th" scope="row">
+                  {row.id}
+                </TableCell>
+                <TableCell>{row.name}</TableCell>
+                <TableCell>{row.category}</TableCell>
+                <TableCell>{row.price}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
+    </>
   );
 };
 
