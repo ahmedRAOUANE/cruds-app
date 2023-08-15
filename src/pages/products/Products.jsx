@@ -1,4 +1,4 @@
-import * as React from "react";
+import { Link } from "react-router-dom";
 import {
   tableCellClasses,
   styled,
@@ -59,7 +59,18 @@ const Products = () => {
         <Typography component="h3" variant="h5">
           Products
         </Typography>
-        <Button color="success">Add Product</Button>
+        <Button color="success">
+          <Link
+            to="/add-product"
+            style={{
+              textDecoration: "none",
+              textTransform: "capitalize",
+              color: "#fff",
+            }}
+          >
+            Add Product
+          </Link>
+        </Button>
       </div>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="caption table">
