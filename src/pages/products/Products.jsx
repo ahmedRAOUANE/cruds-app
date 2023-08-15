@@ -10,6 +10,7 @@ import {
   TableRow,
   Paper,
   Typography,
+  ToggleButtonGroup,
 } from "@mui/material";
 import Button from "@mui/joy/Button";
 
@@ -47,9 +48,19 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 const Products = () => {
   return (
     <>
-      <Typography component="h3" variant="h5" mb={3}>
-        Products
-      </Typography>
+      <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "space-between",
+          marginBottom: "25px",
+        }}
+      >
+        <Typography component="h3" variant="h5">
+          Products
+        </Typography>
+        <Button color="success">Add Product</Button>
+      </div>
       <TableContainer component={Paper}>
         <Table sx={{ minWidth: 650 }} aria-label="caption table">
           <TableHead>
@@ -71,10 +82,17 @@ const Products = () => {
                 <StyledTableCell>{row.category}</StyledTableCell>
                 <StyledTableCell>{row.price}</StyledTableCell>
                 <StyledTableCell>
-                  <Button color="danger" style={{ marginRight: "20px" }}>
-                    delete
-                  </Button>
-                  <Button>edite</Button>
+                  <ToggleButtonGroup>
+                    <Button color="primary" style={{ padding: "10px" }}>
+                      edite
+                    </Button>
+                    <Button color="neutral" style={{ padding: "10px" }}>
+                      view
+                    </Button>
+                    <Button color="danger" style={{ padding: "10px" }}>
+                      delete
+                    </Button>
+                  </ToggleButtonGroup>
                 </StyledTableCell>
               </StyledTableRow>
             ))}
