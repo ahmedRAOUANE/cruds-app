@@ -1,4 +1,5 @@
 import { Link } from "react-router-dom";
+
 import {
   tableCellClasses,
   styled,
@@ -13,17 +14,11 @@ import {
   ToggleButtonGroup,
 } from "@mui/material";
 import Button from "@mui/joy/Button";
+import { useEffect, useState } from "react";
 
 function createData(id, name, category, price) {
   return { id, name, category, price };
 }
-
-const rows = [
-  createData(1, "Product1", "something", 100),
-  createData(2, "Product1", "something", 100),
-  createData(3, "Product1", "something", 100),
-  createData(4, "Product1", "something", 100),
-];
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -46,6 +41,22 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 }));
 
 const Products = () => {
+  const [rows, setRows] = useState([]);
+  // const rows = [
+  //   createData(1, "Product1", "something", 100),
+  //   createData(2, "Product1", "something", 100),
+  //   createData(3, "Product1", "something", 100),
+  //   createData(4, "Product1", "something", 100),
+  // ];
+
+  useEffect(() => {
+    fetch("https://fakestoreapi.com/products")
+      .then((res) => res.json())
+      .then((data) => {
+        setRows(data);
+      });
+  });
+
   return (
     <>
       <div
@@ -61,7 +72,7 @@ const Products = () => {
         </Typography>
         <Button color="success">
           <Link
-            to="/add-product"
+            to="/products/add-product"
             style={{
               textDecoration: "none",
               textTransform: "capitalize",
@@ -89,7 +100,7 @@ const Products = () => {
                 <StyledTableCell component="th" scope="row">
                   {row.id}
                 </StyledTableCell>
-                <StyledTableCell>{row.name}</StyledTableCell>
+                <StyledTableCell>{row.title}</StyledTableCell>
                 <StyledTableCell>{row.category}</StyledTableCell>
                 <StyledTableCell>{row.price}</StyledTableCell>
                 <StyledTableCell>

@@ -15,7 +15,7 @@ const Mainbody = () => {
         <Route path={"/home"} element={<Home />} />
         <Route path="/categories" element={<Categories />} />
         <Route path="/products" element={<Products />} />
-        <Route path="/add-product" element={<AddProduct />} />
+        <Route path="/products/add-product" element={<AddProduct />} />
       </Routes>
     </div>
   );
