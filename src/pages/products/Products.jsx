@@ -109,7 +109,16 @@ const Products = () => {
                       edite
                     </Button>
                     <Button color="neutral" style={{ padding: "10px" }}>
-                      view
+                      <Link
+                        to={`/products/${row.id}`}
+                        style={{
+                          textDecoration: "none",
+                          textTransform: "capitalize",
+                          color: "#fff",
+                        }}
+                      >
+                        view
+                      </Link>
                     </Button>
                     <Button color="danger" style={{ padding: "10px" }}>
                       delete
