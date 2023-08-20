@@ -1,4 +1,5 @@
 {
+  "homepage": "http://<github-username>.github.io/<repo-name>",
   "products": [
     {
       "id": 1,
