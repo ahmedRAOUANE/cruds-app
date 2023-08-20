@@ -1,5 +1,6 @@
 import { Container, Stack, Typography } from "@mui/material";
-import { Button, Input } from "@mui/joy";
+import Button  from "@mui/joy/Button";
+import Input  from "@mui/joy/Input";
 
 const AddProduct = () => {
   return (
