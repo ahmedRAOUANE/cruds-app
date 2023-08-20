@@ -1,5 +1,5 @@
 {
-  "homepage": "http://ahmedRAOUANE.github.io/cruds-app",
+  "homepage": {"url":"http://ahmedRAOUANE.github.io/cruds-app"},
   "products": [
     {
       "id": 1,

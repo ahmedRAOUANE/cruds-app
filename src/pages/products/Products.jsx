@@ -16,9 +16,9 @@ import {
 import Button from "@mui/joy/Button";
 import { useEffect, useState } from "react";
 
-function createData(id, name, category, price) {
-  return { id, name, category, price };
-}
+// function createData(id, name, category, price) {
+//   return { id, name, category, price };
+// }
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -44,7 +44,10 @@ const Products = () => {
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
-    fetch("http://localhost:9000/products")
+    fetch("https://my-json-server.typicode.com/ahmedRAOUANE/cruds-app/products",{
+      format: "json",
+      type: "GET"
+    })
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -53,7 +56,7 @@ const Products = () => {
   }, []);
 
   const removeProduct = (productID) => {
-    fetch(`http://localhost:9000/products`, {
+    fetch(`https://my-json-server.typicode.com/ahmedRAOUANE/cruds-app/products`, {
       method: "DELETE",
     })
       .then((res) => {
