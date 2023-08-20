@@ -44,10 +44,7 @@ const Products = () => {
   const [rows, setRows] = useState([]);
 
   useEffect(() => {
-    fetch("https://my-json-server.typicode.com/ahmedRAOUANE/cruds-app/products",{
-      format: "json",
-      type: "GET"
-    })
+    fetch("https://my-json-server.typicode.com/ahmedRAOUANE/cruds-app/products")
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -56,7 +53,7 @@ const Products = () => {
   }, []);
 
   const removeProduct = (productID) => {
-    fetch(`https://my-json-server.typicode.com/ahmedRAOUANE/cruds-app/products`, {
+    fetch(`https://my-json-server.typicode.com/ahmedRAOUANE/cruds-app/products/${productID}`, {
       method: "DELETE",
     })
       .then((res) => {
