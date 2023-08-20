@@ -1,21 +1,22 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 import {
   AppBar,
   Box,
   Button,
-  Container,
   IconButton,
   Toolbar,
   Typography,
 } from "@mui/material";
 
-import { MenuIcon } from "@mui/icons-material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { Container } from "@mui/system";
 
 const Navbar = () => {
   return (
-    <Container style={{ maxWidth: "60%", margin: "auto" }}>
-      <AppBar component="nav">
+    <AppBar component="nav" position="relative">
+      <Container>
         <Toolbar>
           <IconButton
             color="inherit"
@@ -30,18 +31,27 @@ const Navbar = () => {
             component="div"
             sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
           >
-            MUI
+            CRUDS
           </Typography>
           <Box sx={{ display: { xs: "none", sm: "block" } }}>
-            {["Home", "About", "Contact"].map((item) => (
+            {["home", "products", "categories"].map((item) => (
               <Button key={item} sx={{ color: "#fff" }}>
-                {item}
+                <Link
+                  to={item}
+                  style={{
+                    textDecoration: "none",
+                    textTransform: "capitalize",
+                    color: "#fff",
+                  }}
+                >
+                  {item}
+                </Link>
               </Button>
             ))}
           </Box>
         </Toolbar>
-      </AppBar>
-    </Container>
+      </Container>
+    </AppBar>
   );
 };
 
