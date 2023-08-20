@@ -42,20 +42,28 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 
 const Products = () => {
   const [rows, setRows] = useState([]);
-  // const rows = [
-  //   createData(1, "Product1", "something", 100),
-  //   createData(2, "Product1", "something", 100),
-  //   createData(3, "Product1", "something", 100),
-  //   createData(4, "Product1", "something", 100),
-  // ];
 
   useEffect(() => {
-    fetch("https://fakestoreapi.com/products")
+    fetch("assets/db.json")
       .then((res) => res.json())
       .then((data) => {
+        console.log(data);
         setRows(data);
       });
-  });
+  }, []);
+
+  const removeProduct = (productID) => {
+    fetch(`assets/db.json`, {
+      method: "DELETE",
+    })
+      .then((res) => {
+        console.log(res);
+        res.json();
+      })
+      .then((newData) => {
+        console.log(newData);
+      });
+  };
 
   return (
     <>
@@ -120,7 +128,11 @@ const Products = () => {
                         view
                       </Link>
                     </Button>
-                    <Button color="danger" style={{ padding: "10px" }}>
+                    <Button
+                      onClick={() => removeProduct(row.id)}
+                      color="danger"
+                      style={{ padding: "10px" }}
+                    >
                       delete
                     </Button>
                   </ToggleButtonGroup>

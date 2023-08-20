@@ -19,7 +19,6 @@ const Detailes = () => {
     fetch(`https://fakestoreapi.com/products/${productID}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setProduct(data);
       });
   }, []);
