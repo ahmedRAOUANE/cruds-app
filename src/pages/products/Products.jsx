@@ -16,10 +16,6 @@ import {
 import Button from "@mui/joy/Button";
 import { useEffect, useState } from "react";
 
-// function createData(id, name, category, price) {
-//   return { id, name, category, price };
-// }
-
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.common.black,
@@ -110,7 +106,7 @@ const Products = () => {
                 </StyledTableCell>
                 <StyledTableCell>{row.title}</StyledTableCell>
                 <StyledTableCell>{row.category}</StyledTableCell>
-                <StyledTableCell>{row.price}</StyledTableCell>
+                <StyledTableCell>{row.price} $</StyledTableCell>
                 <StyledTableCell>
                   <ToggleButtonGroup>
                     <Button color="primary" style={{ padding: "10px" }}>
@@ -150,3 +146,4 @@ export default Products;
 
 
 // failed to delete product when using the online editor(github codespace)!!!!?
+// problem: unknown
